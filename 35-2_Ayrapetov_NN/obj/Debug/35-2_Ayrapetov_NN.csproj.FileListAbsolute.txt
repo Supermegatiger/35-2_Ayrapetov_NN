@@ -9,3 +9,14 @@ D:\Studies\NeuralNetwork\35-2_Ayrapetov_NN\35-2_Ayrapetov_NN\obj\Debug\35-2_Ayra
 D:\Studies\NeuralNetwork\35-2_Ayrapetov_NN\35-2_Ayrapetov_NN\obj\Debug\35-2_Ayrapetov_NN.csproj.CoreCompileInputs.cache
 D:\Studies\NeuralNetwork\35-2_Ayrapetov_NN\35-2_Ayrapetov_NN\obj\Debug\35-2_Ayrapetov_NN.exe
 D:\Studies\NeuralNetwork\35-2_Ayrapetov_NN\35-2_Ayrapetov_NN\obj\Debug\35-2_Ayrapetov_NN.pdb
+D:\Studies\Neural Network\35-2_Ayrapetov_NN\35-2_Ayrapetov_NN\bin\Debug\35-2_Ayrapetov_NN.exe.config
+D:\Studies\Neural Network\35-2_Ayrapetov_NN\35-2_Ayrapetov_NN\bin\Debug\35-2_Ayrapetov_NN.exe
+D:\Studies\Neural Network\35-2_Ayrapetov_NN\35-2_Ayrapetov_NN\bin\Debug\35-2_Ayrapetov_NN.pdb
+D:\Studies\Neural Network\35-2_Ayrapetov_NN\35-2_Ayrapetov_NN\obj\Debug\35-2_Ayrapetov_NN.csproj.AssemblyReference.cache
+D:\Studies\Neural Network\35-2_Ayrapetov_NN\35-2_Ayrapetov_NN\obj\Debug\35-2_Ayrapetov_NN.csproj.SuggestedBindingRedirects.cache
+D:\Studies\Neural Network\35-2_Ayrapetov_NN\35-2_Ayrapetov_NN\obj\Debug\_35_2_Ayrapetov_NN.Form1.resources
+D:\Studies\Neural Network\35-2_Ayrapetov_NN\35-2_Ayrapetov_NN\obj\Debug\_35_2_Ayrapetov_NN.Properties.Resources.resources
+D:\Studies\Neural Network\35-2_Ayrapetov_NN\35-2_Ayrapetov_NN\obj\Debug\35-2_Ayrapetov_NN.csproj.GenerateResource.cache
+D:\Studies\Neural Network\35-2_Ayrapetov_NN\35-2_Ayrapetov_NN\obj\Debug\35-2_Ayrapetov_NN.csproj.CoreCompileInputs.cache
+D:\Studies\Neural Network\35-2_Ayrapetov_NN\35-2_Ayrapetov_NN\obj\Debug\35-2_Ayrapetov_NN.exe
+D:\Studies\Neural Network\35-2_Ayrapetov_NN\35-2_Ayrapetov_NN\obj\Debug\35-2_Ayrapetov_NN.pdb
