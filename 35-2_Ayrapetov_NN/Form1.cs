@@ -26,8 +26,8 @@ namespace _35_2_Ayrapetov_NN
             InitializeComponent();
         }
 
-        private void tempHandler(Button b, int id)
-        {
+        private void clickHandler(object but, int id){
+            Button b =(Button)but;
             if (b.BackColor == Color.White)
             {
                 b.BackColor = Color.Black;
@@ -38,37 +38,37 @@ namespace _35_2_Ayrapetov_NN
                 b.BackColor = Color.White;
                 InputData[id] = 0;
             }
-            Console.WriteLine($"id[{id}] = {InputData[id]}");
+            //Console.WriteLine($"id[{id}] = {InputData[id]}");
         }
 
-        private void px1_Click(object sender, EventArgs e) => tempHandler(px1,0);
+        private void px1_Click(object sender, EventArgs e) => clickHandler(sender,0);
 
-        private void px2_Click(object sender, EventArgs e) => tempHandler(px2,1);
+        private void px2_Click(object sender, EventArgs e) => clickHandler(sender, 1);
 
-        private void px3_Click(object sender, EventArgs e) => tempHandler(px3,2);
+        private void px3_Click(object sender, EventArgs e) => clickHandler(sender,2);
 
-        private void px4_Click(object sender, EventArgs e) => tempHandler(px4,3);
+        private void px4_Click(object sender, EventArgs e) => clickHandler(sender,3);
 
-        private void px5_Click(object sender, EventArgs e) => tempHandler(px5,4);
+        private void px5_Click(object sender, EventArgs e) => clickHandler(sender,4);
 
-        private void px6_Click(object sender, EventArgs e) => tempHandler(px6,5);
+        private void px6_Click(object sender, EventArgs e) => clickHandler(sender,5);
 
-        private void px7_Click(object sender, EventArgs e) => tempHandler(px7,6);
+        private void px7_Click(object sender, EventArgs e) => clickHandler(sender,6);
 
-        private void px8_Click(object sender, EventArgs e) => tempHandler(px8,7);
+        private void px8_Click(object sender, EventArgs e) => clickHandler(sender,7);
 
-        private void px9_Click(object sender, EventArgs e) => tempHandler(px9,8);
+        private void px9_Click(object sender, EventArgs e) => clickHandler(sender,8);
 
-        private void px10_Click(object sender, EventArgs e) => tempHandler(px10,9);
+        private void px10_Click(object sender, EventArgs e) => clickHandler(sender,9);
 
-        private void px11_Click(object sender, EventArgs e) => tempHandler(px11,10);
+        private void px11_Click(object sender, EventArgs e) => clickHandler(sender,10);
 
-        private void px12_Click(object sender, EventArgs e) => tempHandler(px12,11);
+        private void px12_Click(object sender, EventArgs e) => clickHandler(sender,11);
 
-        private void px13_Click(object sender, EventArgs e) => tempHandler(px13,12);
+        private void px13_Click(object sender, EventArgs e) => clickHandler(sender,12);
 
-        private void px14_Click(object sender, EventArgs e) => tempHandler(px14,13);
+        private void px14_Click(object sender, EventArgs e) => clickHandler(sender,13);
 
-        private void px15_Click(object sender, EventArgs e) => tempHandler(px15,14);
+        private void px15_Click(object sender, EventArgs e) => clickHandler(sender,14);
     }
 }
