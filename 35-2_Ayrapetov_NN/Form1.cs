@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -70,5 +71,29 @@ namespace _35_2_Ayrapetov_NN
         private void px14_Click(object sender, EventArgs e) => clickHandler(sender,13);
 
         private void px15_Click(object sender, EventArgs e) => clickHandler(sender,14);
+
+        private void saveTrainDataBtn_Click(object sender, EventArgs e)
+        {
+            string path = AppDomain.CurrentDomain.BaseDirectory + "trainData.txt";
+            string data = digitField.Value.ToString();
+            foreach(int i in InputData){
+                data += " " + i.ToString();
+            }
+            data += "\n";
+            File.AppendAllText(path, data);
+            //logTextBox.Text = "Данные сохранены в " + path;
+        }
+
+        private void saveTestDataBtn_Click(object sender, EventArgs e)
+        {
+            string path = AppDomain.CurrentDomain.BaseDirectory + "testData.txt";
+            string data = digitField.Value.ToString();
+            foreach (int i in InputData)
+            {
+                data += " " + i.ToString();
+            }
+            data += "\n";
+            File.AppendAllText(path, data);
+        }
     }
 }

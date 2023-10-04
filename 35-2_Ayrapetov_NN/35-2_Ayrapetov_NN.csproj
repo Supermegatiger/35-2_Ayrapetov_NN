@@ -52,6 +52,10 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModelNN\HiddenLayer.cs" />
+    <Compile Include="ModelNN\InputLayer.cs" />
+    <Compile Include="ModelNN\Neuron.cs" />
+    <Compile Include="ModelNN\OutputLayer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
