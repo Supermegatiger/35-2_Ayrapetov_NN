@@ -1,3 +1,4 @@
+using System;
 using static System.Math;
 
 
@@ -56,7 +57,7 @@ namespace _35_2_Ayrapetov_NN.ModelNN{
                     break;
                 case NeuroType.Hidden:
                     output = th(sum);
-                    derivative = derivator(sum);
+                    derivative = Derivator(sum);
                     break;
                 default:
                     break;
@@ -65,12 +66,12 @@ namespace _35_2_Ayrapetov_NN.ModelNN{
 
         // функция активации (гиперболический тангенс)
         private double th(double x){
-            return x;
+            return Tanh(x);
         }
 
         // вычисление производной
-        private double derivator(double x){
-            return x;
+        private double Derivator(double x){
+            return 1-Pow(Tanh(x),2);
         }
     }
 }
