@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace _35_2_Ayrapetov_NN.ModelNN
 {
-    internal class InputLayer
+    class InputLayer
     {
+        public InputLayer(NetworkMode nm)
+        {
+
+        }
     }
 }

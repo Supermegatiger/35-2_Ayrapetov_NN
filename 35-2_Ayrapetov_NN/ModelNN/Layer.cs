@@ -7,7 +7,7 @@ namespace _35_2_Ayrapetov_NN.ModelNN
     {
         // поля
         protected string name_Layer; // наименование слоя
-        string pathDirWeights; // путь к директории весов
+        string pathDirWeights; // путь к директории файла весов
         string pathFileWeights; // путь к файлу весов
         protected int numOfNeurons; // число нейронов
         protected int numOfPrevNeurons; // число нейронов на пред слое
@@ -98,22 +98,43 @@ namespace _35_2_Ayrapetov_NN.ModelNN
                     for (int i = 0; i < numOfNeurons; i++)
                     {
                         tmpStr = Neurons[i].Weights[0].ToString();
-                        // тут дописать
+                        for (int j = 0; j < numOfPrevNeurons + 1; j++)
+                        {
+                            tmpStr += delim[0] + Neurons[i].Weights[j].ToString();
+                        }
+                        tmpStrWeights[i] = tmpStr;
                     }
+                    File.WriteAllLines(path, tmpStrWeights);
                     break;
                 case MemoryMode.INIT:
                     Random rand = new Random();
+                    tmpStrWeights = new string[numOfNeurons];
 
                     // инициализация весов:
                     // 1. веса инициализируются случайными величинами
                     // 2. мат ожидание всех весов нейрона должно равняться 0
                     // 3. среднее квадратическое значение должно равняться 1
-                    // 
-
+                    
                     for (int i = 0; i < numOfNeurons; i++)
                     {
-                        // вычисления происходят здесь (дописать код инициализации весов)
+                            // вычисляем мат. ожидание
+                            double sum = 0;
+                            for (int j = 0; j < numOfPrevNeurons + 1; j++)
+                            {
+                                weigths[i, j] = rand.NextDouble();
+                                sum += weigths[i, j];
+                            }
+                            double mean = sum / (numOfPrevNeurons+1);
+                            sum = 0;
+                            // вычисляем сркв отклонение
+                            for (int j = 0; j < numOfPrevNeurons + 1; j++)
+                                sum += Math.Pow(weigths[i, j] - mean, 2);
+                            double std = Math.Sqrt(sum / (numOfPrevNeurons + 1));
+                            // нормализуем веса
+                            for (int j = 0; j < numOfPrevNeurons + 1; j++)
+                                weigths[i, j] = (weigths[i, j] - mean)/std;
 
+                        tmpStr = "";
                         for (int j = 0; j < numOfPrevNeurons+1; j++)
                         {
                             tmpStr += delim[0] + weigths[i, j].ToString();
