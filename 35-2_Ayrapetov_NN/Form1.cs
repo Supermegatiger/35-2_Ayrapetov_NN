@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _35_2_Ayrapetov_NN.ModelNN;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,9 +14,9 @@ namespace _35_2_Ayrapetov_NN
 {
     public partial class Form1 : Form
     {
-        int[] inputData;
-
-        public int[] InputData
+        double[] inputData;
+        Network n = new Network(NetworkMode.Test);
+        public double[] InputData
         {
             get { return inputData; }
             set { inputData = value; }
@@ -23,7 +24,7 @@ namespace _35_2_Ayrapetov_NN
 
         public Form1()
         {
-            InputData = new int[15];
+            InputData = new double[15];
             InitializeComponent();
         }
 
@@ -94,6 +95,28 @@ namespace _35_2_Ayrapetov_NN
             }
             data += "\n";
             File.AppendAllText(path, data);
+        }
+
+        private void recBtn_Click(object sender, EventArgs e)
+        {
+            n.ForwardPass(n, InputData);
+            var j = 0;
+            var mx = 0.0;
+            for (int i = 0; i < n.Fact.Length; i++)
+            {
+                if (n.Fact[i] > mx)
+                {
+                    j = i;
+                    mx = n.Fact[j];
+                }
+            }
+            MessageBox.Show(
+                j.ToString(),
+            "Предсказание",
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Information,
+            MessageBoxDefaultButton.Button1,
+            MessageBoxOptions.DefaultDesktopOnly);
         }
     }
 }

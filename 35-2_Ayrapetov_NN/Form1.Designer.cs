@@ -44,10 +44,10 @@
             this.px14 = new System.Windows.Forms.Button();
             this.px15 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.recBtn = new System.Windows.Forms.Button();
-            this.saveTestDataBtn = new System.Windows.Forms.Button();
-            this.saveTrainDataBtn = new System.Windows.Forms.Button();
             this.digitField = new System.Windows.Forms.NumericUpDown();
+            this.saveTrainDataBtn = new System.Windows.Forms.Button();
+            this.saveTestDataBtn = new System.Windows.Forms.Button();
+            this.recBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.digitField)).BeginInit();
             this.SuspendLayout();
@@ -289,30 +289,18 @@
             this.panel1.Size = new System.Drawing.Size(356, 289);
             this.panel1.TabIndex = 15;
             // 
-            // recBtn
+            // digitField
             // 
-            this.recBtn.BackColor = System.Drawing.Color.ForestGreen;
-            this.recBtn.FlatAppearance.BorderSize = 0;
-            this.recBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.recBtn.Location = new System.Drawing.Point(220, 223);
-            this.recBtn.Name = "recBtn";
-            this.recBtn.Size = new System.Drawing.Size(105, 41);
-            this.recBtn.TabIndex = 16;
-            this.recBtn.Text = "RECOGNIZE";
-            this.recBtn.UseVisualStyleBackColor = false;
-            // 
-            // saveTestDataBtn
-            // 
-            this.saveTestDataBtn.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.saveTestDataBtn.FlatAppearance.BorderSize = 0;
-            this.saveTestDataBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveTestDataBtn.Location = new System.Drawing.Point(220, 169);
-            this.saveTestDataBtn.Name = "saveTestDataBtn";
-            this.saveTestDataBtn.Size = new System.Drawing.Size(105, 41);
-            this.saveTestDataBtn.TabIndex = 17;
-            this.saveTestDataBtn.Text = "Save Test Data";
-            this.saveTestDataBtn.UseVisualStyleBackColor = false;
-            this.saveTestDataBtn.Click += new System.EventHandler(this.saveTestDataBtn_Click);
+            this.digitField.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.digitField.Location = new System.Drawing.Point(220, 38);
+            this.digitField.Maximum = new decimal(new int[] {
+            9,
+            0,
+            0,
+            0});
+            this.digitField.Name = "digitField";
+            this.digitField.Size = new System.Drawing.Size(105, 26);
+            this.digitField.TabIndex = 19;
             // 
             // saveTrainDataBtn
             // 
@@ -327,18 +315,31 @@
             this.saveTrainDataBtn.UseVisualStyleBackColor = false;
             this.saveTrainDataBtn.Click += new System.EventHandler(this.saveTrainDataBtn_Click);
             // 
-            // digitField
+            // saveTestDataBtn
             // 
-            this.digitField.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.digitField.Location = new System.Drawing.Point(220, 38);
-            this.digitField.Maximum = new decimal(new int[] {
-            9,
-            0,
-            0,
-            0});
-            this.digitField.Name = "digitField";
-            this.digitField.Size = new System.Drawing.Size(105, 26);
-            this.digitField.TabIndex = 19;
+            this.saveTestDataBtn.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.saveTestDataBtn.FlatAppearance.BorderSize = 0;
+            this.saveTestDataBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveTestDataBtn.Location = new System.Drawing.Point(220, 169);
+            this.saveTestDataBtn.Name = "saveTestDataBtn";
+            this.saveTestDataBtn.Size = new System.Drawing.Size(105, 41);
+            this.saveTestDataBtn.TabIndex = 17;
+            this.saveTestDataBtn.Text = "Save Test Data";
+            this.saveTestDataBtn.UseVisualStyleBackColor = false;
+            this.saveTestDataBtn.Click += new System.EventHandler(this.saveTestDataBtn_Click);
+            // 
+            // recBtn
+            // 
+            this.recBtn.BackColor = System.Drawing.Color.ForestGreen;
+            this.recBtn.FlatAppearance.BorderSize = 0;
+            this.recBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.recBtn.Location = new System.Drawing.Point(220, 223);
+            this.recBtn.Name = "recBtn";
+            this.recBtn.Size = new System.Drawing.Size(105, 41);
+            this.recBtn.TabIndex = 16;
+            this.recBtn.Text = "RECOGNIZE";
+            this.recBtn.UseVisualStyleBackColor = false;
+            this.recBtn.Click += new System.EventHandler(this.recBtn_Click);
             // 
             // Form1
             // 

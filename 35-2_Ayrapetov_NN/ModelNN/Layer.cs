@@ -50,7 +50,9 @@ namespace _35_2_Ayrapetov_NN.ModelNN
             }
             else
             {
-                Directory.CreateDirectory(pathFileWeights);
+
+                Directory.CreateDirectory(pathDirWeights);
+                File.Create(pathFileWeights).Close();
                 Weights = WeightInitialize(MemoryMode.INIT, pathFileWeights);
 
             }
@@ -84,7 +86,7 @@ namespace _35_2_Ayrapetov_NN.ModelNN
                     string[] memory_element;
                     for(int i = 0; i < numOfNeurons; i++)
                     {
-                        memory_element = tmpStrWeights[i].Split(delim);
+                        memory_element = tmpStrWeights[i].Split(delim[0]);
                         for (int j = 0; j < numOfPrevNeurons+1; j++)
                         {
                             weigths[i, j] = double.Parse(memory_element[j].Replace(',', '.'),
@@ -98,7 +100,7 @@ namespace _35_2_Ayrapetov_NN.ModelNN
                     for (int i = 0; i < numOfNeurons; i++)
                     {
                         tmpStr = Neurons[i].Weights[0].ToString();
-                        for (int j = 0; j < numOfPrevNeurons + 1; j++)
+                        for (int j = 1; j < numOfPrevNeurons + 1; j++)
                         {
                             tmpStr += delim[0] + Neurons[i].Weights[j].ToString();
                         }
@@ -134,8 +136,8 @@ namespace _35_2_Ayrapetov_NN.ModelNN
                             for (int j = 0; j < numOfPrevNeurons + 1; j++)
                                 weigths[i, j] = (weigths[i, j] - mean)/std;
 
-                        tmpStr = "";
-                        for (int j = 0; j < numOfPrevNeurons+1; j++)
+                        tmpStr = weigths[i, 0].ToString();
+                        for (int j = 1; j < numOfPrevNeurons+1; j++)
                         {
                             tmpStr += delim[0] + weigths[i, j].ToString();
                         }
