@@ -15,11 +15,16 @@ namespace _35_2_Ayrapetov_NN
     public partial class Form1 : Form
     {
         double[] inputData;
-        Network n = new Network(NetworkMode.Test);
+        Network net = new Network(NetworkMode.Test);
         public double[] InputData
         {
             get { return inputData; }
             set { inputData = value; }
+        }
+
+        double[] NetOutput
+        {
+            set => labelOutput.Text = value.ToList().IndexOf(value.Max()).ToString();
         }
 
         public Form1()
@@ -99,24 +104,25 @@ namespace _35_2_Ayrapetov_NN
 
         private void recBtn_Click(object sender, EventArgs e)
         {
-            n.ForwardPass(n, InputData);
-            var j = 0;
-            var mx = 0.0;
-            for (int i = 0; i < n.Fact.Length; i++)
-            {
-                if (n.Fact[i] > mx)
-                {
-                    j = i;
-                    mx = n.Fact[j];
-                }
-            }
-            MessageBox.Show(
-                j.ToString(),
-            "Предсказание",
-            MessageBoxButtons.OK,
-            MessageBoxIcon.Information,
-            MessageBoxDefaultButton.Button1,
-            MessageBoxOptions.DefaultDesktopOnly);
+            net.ForwardPass(net, InputData);
+            //MessageBox.Show(
+            //    j.ToString(),
+            //"Предсказание",
+            //MessageBoxButtons.OK,
+            //MessageBoxIcon.Information,
+            //MessageBoxDefaultButton.Button1,
+            //MessageBoxOptions.DefaultDesktopOnly);
+            NetOutput = net.Fact;
+        }
+
+        private void trainBtn_Click(object sender, EventArgs e)
+        {
+            net.Train(net);
+        }
+
+        private void testBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

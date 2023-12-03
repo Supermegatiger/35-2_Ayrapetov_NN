@@ -46,14 +46,14 @@ namespace _35_2_Ayrapetov_NN.ModelNN
             double[,] Weights; // временный массив синаптических весов текущего слоя
 
             if (File.Exists(pathFileWeights)){
-                Weights = WeightInitialize(MemoryMode.GET, pathFileWeights);
+                Weights = WeightsInitialize(MemoryMode.GET, pathFileWeights);
             }
             else
             {
 
                 Directory.CreateDirectory(pathDirWeights);
                 File.Create(pathFileWeights).Close();
-                Weights = WeightInitialize(MemoryMode.INIT, pathFileWeights);
+                Weights = WeightsInitialize(MemoryMode.INIT, pathFileWeights);
 
             }
 
@@ -72,7 +72,7 @@ namespace _35_2_Ayrapetov_NN.ModelNN
         abstract public void Recognize(Network net, Layer nextLayer);
         abstract public double[] BackwardPass(double[] stuff);
 
-        public double[,] WeightInitialize(MemoryMode mm, string path)
+        public double[,] WeightsInitialize(MemoryMode mm, string path)
         {
             char[] delim = new char[] { ';', ' ' }; // разделители слов
             string tmpStr; // временная строка для чтения

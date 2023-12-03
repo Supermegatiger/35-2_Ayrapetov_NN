@@ -48,6 +48,9 @@
             this.saveTrainDataBtn = new System.Windows.Forms.Button();
             this.saveTestDataBtn = new System.Windows.Forms.Button();
             this.recBtn = new System.Windows.Forms.Button();
+            this.labelOutput = new System.Windows.Forms.Label();
+            this.trainBtn = new System.Windows.Forms.Button();
+            this.testBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.digitField)).BeginInit();
             this.SuspendLayout();
@@ -265,6 +268,8 @@
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel1.Controls.Add(this.testBtn);
+            this.panel1.Controls.Add(this.trainBtn);
             this.panel1.Controls.Add(this.digitField);
             this.panel1.Controls.Add(this.saveTrainDataBtn);
             this.panel1.Controls.Add(this.saveTestDataBtn);
@@ -286,7 +291,7 @@
             this.panel1.Controls.Add(this.px8);
             this.panel1.Location = new System.Drawing.Point(230, 139);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(356, 289);
+            this.panel1.Size = new System.Drawing.Size(356, 356);
             this.panel1.TabIndex = 15;
             // 
             // digitField
@@ -307,7 +312,7 @@
             this.saveTrainDataBtn.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.saveTrainDataBtn.FlatAppearance.BorderSize = 0;
             this.saveTrainDataBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveTrainDataBtn.Location = new System.Drawing.Point(220, 114);
+            this.saveTrainDataBtn.Location = new System.Drawing.Point(220, 73);
             this.saveTrainDataBtn.Name = "saveTrainDataBtn";
             this.saveTrainDataBtn.Size = new System.Drawing.Size(105, 41);
             this.saveTrainDataBtn.TabIndex = 18;
@@ -320,7 +325,7 @@
             this.saveTestDataBtn.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.saveTestDataBtn.FlatAppearance.BorderSize = 0;
             this.saveTestDataBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveTestDataBtn.Location = new System.Drawing.Point(220, 169);
+            this.saveTestDataBtn.Location = new System.Drawing.Point(220, 123);
             this.saveTestDataBtn.Name = "saveTestDataBtn";
             this.saveTestDataBtn.Size = new System.Drawing.Size(105, 41);
             this.saveTestDataBtn.TabIndex = 17;
@@ -333,7 +338,7 @@
             this.recBtn.BackColor = System.Drawing.Color.ForestGreen;
             this.recBtn.FlatAppearance.BorderSize = 0;
             this.recBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.recBtn.Location = new System.Drawing.Point(220, 223);
+            this.recBtn.Location = new System.Drawing.Point(134, 292);
             this.recBtn.Name = "recBtn";
             this.recBtn.Size = new System.Drawing.Size(105, 41);
             this.recBtn.TabIndex = 16;
@@ -341,18 +346,57 @@
             this.recBtn.UseVisualStyleBackColor = false;
             this.recBtn.Click += new System.EventHandler(this.recBtn_Click);
             // 
+            // labelOutput
+            // 
+            this.labelOutput.AutoSize = true;
+            this.labelOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelOutput.ForeColor = System.Drawing.Color.White;
+            this.labelOutput.Location = new System.Drawing.Point(385, 78);
+            this.labelOutput.Name = "labelOutput";
+            this.labelOutput.Size = new System.Drawing.Size(84, 31);
+            this.labelOutput.TabIndex = 16;
+            this.labelOutput.Text = "пусто";
+            // 
+            // trainBtn
+            // 
+            this.trainBtn.BackColor = System.Drawing.Color.ForestGreen;
+            this.trainBtn.FlatAppearance.BorderSize = 0;
+            this.trainBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.trainBtn.Location = new System.Drawing.Point(220, 173);
+            this.trainBtn.Name = "trainBtn";
+            this.trainBtn.Size = new System.Drawing.Size(105, 41);
+            this.trainBtn.TabIndex = 20;
+            this.trainBtn.Text = "TRAIN";
+            this.trainBtn.UseVisualStyleBackColor = false;
+            this.trainBtn.Click += new System.EventHandler(this.trainBtn_Click);
+            // 
+            // testBtn
+            // 
+            this.testBtn.BackColor = System.Drawing.Color.ForestGreen;
+            this.testBtn.FlatAppearance.BorderSize = 0;
+            this.testBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.testBtn.Location = new System.Drawing.Point(220, 223);
+            this.testBtn.Name = "testBtn";
+            this.testBtn.Size = new System.Drawing.Size(105, 41);
+            this.testBtn.TabIndex = 21;
+            this.testBtn.Text = "TEST";
+            this.testBtn.UseVisualStyleBackColor = false;
+            this.testBtn.Click += new System.EventHandler(this.testBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.BackColor = System.Drawing.Color.RosyBrown;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.labelOutput);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.digitField)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -378,6 +422,9 @@
         private System.Windows.Forms.NumericUpDown digitField;
         private System.Windows.Forms.Button saveTrainDataBtn;
         private System.Windows.Forms.Button saveTestDataBtn;
+        private System.Windows.Forms.Label labelOutput;
+        private System.Windows.Forms.Button testBtn;
+        private System.Windows.Forms.Button trainBtn;
     }
 }
 

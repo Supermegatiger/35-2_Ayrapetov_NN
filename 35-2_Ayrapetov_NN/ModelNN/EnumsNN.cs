@@ -11,7 +11,7 @@ namespace _35_2_Ayrapetov_NN.ModelNN
     {
         Train,
         Test,
-        Demo
+        Recognize
     }
 
     enum NeuroType // тип нейрона
