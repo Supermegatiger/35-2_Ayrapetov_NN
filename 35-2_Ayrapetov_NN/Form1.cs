@@ -115,14 +115,14 @@ namespace _35_2_Ayrapetov_NN
             NetOutput = net.Fact;
         }
 
-        private void trainBtn_Click(object sender, EventArgs e)
+        private async void trainBtn_Click(object sender, EventArgs e)
         {
             net.Train(net);
         }
 
         private void testBtn_Click(object sender, EventArgs e)
         {
-
+            net.Test(net);
         }
     }
 }

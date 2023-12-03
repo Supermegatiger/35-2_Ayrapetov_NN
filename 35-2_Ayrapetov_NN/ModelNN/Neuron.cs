@@ -5,6 +5,10 @@ using static System.Math;
 namespace _35_2_Ayrapetov_NN.ModelNN{
 
     class Neuron{
+        //private double a = 1.7159;
+        //private double b = 2 / 3;
+        private double a = 1;
+        private double b = 1;
         // поля
         private NeuroType type;
         private double[] inputs;
@@ -66,12 +70,12 @@ namespace _35_2_Ayrapetov_NN.ModelNN{
 
         // функция активации (гиперболический тангенс)
         private double th(double x){
-            return Tanh(x);
+            return a * Tanh(b * x);
         }
 
         // вычисление производной
         private double Derivator(double x){
-            return 1-Pow(Tanh(x),2);
+            return a*b*(1-Pow(Tanh(b*x),2));
         }
     }
 }

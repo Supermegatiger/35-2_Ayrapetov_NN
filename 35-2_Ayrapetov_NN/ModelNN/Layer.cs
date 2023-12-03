@@ -41,19 +41,19 @@ namespace _35_2_Ayrapetov_NN.ModelNN
             Neurons = new Neuron[non];
             name_Layer = nm_Layer;
             pathDirWeights = AppDomain.CurrentDomain.BaseDirectory + "memory\\";
-            pathFileWeights = pathDirWeights + name_Layer + "memory.csv"; 
+            pathFileWeights = pathDirWeights + name_Layer + "_memory.csv"; 
 
             double[,] Weights; // временный массив синаптических весов текущего слоя
 
             if (File.Exists(pathFileWeights)){
-                Weights = WeightsInitialize(MemoryMode.GET, pathFileWeights);
+                Weights = WeightsInitialize(MemoryMode.GET);
             }
             else
             {
 
                 Directory.CreateDirectory(pathDirWeights);
                 File.Create(pathFileWeights).Close();
-                Weights = WeightsInitialize(MemoryMode.INIT, pathFileWeights);
+                Weights = WeightsInitialize(MemoryMode.INIT);
 
             }
 
@@ -72,7 +72,7 @@ namespace _35_2_Ayrapetov_NN.ModelNN
         abstract public void Recognize(Network net, Layer nextLayer);
         abstract public double[] BackwardPass(double[] stuff);
 
-        public double[,] WeightsInitialize(MemoryMode mm, string path)
+        public double[,] WeightsInitialize(MemoryMode mm)
         {
             char[] delim = new char[] { ';', ' ' }; // разделители слов
             string tmpStr; // временная строка для чтения
@@ -82,7 +82,7 @@ namespace _35_2_Ayrapetov_NN.ModelNN
             switch (mm)
             {
                 case MemoryMode.GET:
-                    tmpStrWeights = File.ReadAllLines(path);
+                    tmpStrWeights = File.ReadAllLines(pathFileWeights);
                     string[] memory_element;
                     for(int i = 0; i < numOfNeurons; i++)
                     {
@@ -106,7 +106,7 @@ namespace _35_2_Ayrapetov_NN.ModelNN
                         }
                         tmpStrWeights[i] = tmpStr;
                     }
-                    File.WriteAllLines(path, tmpStrWeights);
+                    File.WriteAllLines(pathFileWeights, tmpStrWeights);
                     break;
                 case MemoryMode.INIT:
                     Random rand = new Random();
@@ -144,7 +144,7 @@ namespace _35_2_Ayrapetov_NN.ModelNN
                         tmpStrWeights[i] = tmpStr;
 
                     }
-                    File.WriteAllLines(path, tmpStrWeights);
+                    File.WriteAllLines(pathFileWeights, tmpStrWeights);
 
                     break;
                 default:

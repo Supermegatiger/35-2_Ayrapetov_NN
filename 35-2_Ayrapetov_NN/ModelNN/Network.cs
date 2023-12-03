@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace _35_2_Ayrapetov_NN.ModelNN
 {
     class Network
     {
+        Form form;
+        int epochK = 0;
         //Массив для хранения вектора выходного сигнала нейросети
         public double[] Fact = new double[10];
 
@@ -42,10 +46,67 @@ namespace _35_2_Ayrapetov_NN.ModelNN
             net.output_layer.Recognize(net, null);
         }
 
-        // Обучение
-        public void Train(Network net)
+        private Form createChartForm()
         {
-            int epochs = 100;
+            var errorChartForm = new Form
+            {
+                Text = "График ошибки",
+                Width = 600,
+                Height = 400
+            };
+
+            Chart errorChart = new Chart
+            {
+                Dock = DockStyle.Fill
+            };
+            //errorChart.ChartAreas[0].AxisY.Minimum = 0;
+            //errorChart.ChartAreas[0].AxisX.Minimum = 0;
+
+            Series errorSeries = new Series("Ошибка")
+            {
+                ChartType = SeriesChartType.Line,
+                BorderWidth = 2
+            };
+
+            errorChart.Series.Add(errorSeries);
+            errorChart.ChartAreas.Add(new ChartArea());
+
+            // Добавление Chart на форму
+            errorChartForm.Controls.Add(errorChart);
+
+            // Подписка на событие закрытия формы
+            errorChartForm.FormClosed += (sender, e) => { form = null; errorChartForm = null; };
+            return errorChartForm;
+        }
+
+        private void UpdateErrorChartAsync(Form errorChartForm, double error)
+        {
+            // Вызов метода UpdateChart на форме ErrorChartForm
+            errorChartForm.Invoke(new Action(() => UpdateChart(errorChartForm, error)));
+        }
+
+        private void UpdateChart(Form form, double error)
+        {
+            // Получение элемента управления Chart из формы
+            Chart errorChart = (Chart)form.Controls[0];
+
+            // Добавление новой точки на график
+            errorChart.Series[0].Points.AddXY(epochK++, error);
+
+            // Обновление графика
+            errorChart.Update();
+        }
+
+
+        // Обучение
+        public async Task Train(Network net)
+        {
+            if (form == null) { 
+                form = createChartForm();
+                form.Show();
+            }
+
+            int epochs = 200;
             net.input_layer = new InputLayer(NetworkMode.Train);
 
             double tmpSumError; // Временная переменная суммы ошибок
@@ -88,15 +149,37 @@ namespace _35_2_Ayrapetov_NN.ModelNN
                 }
                 
                 e_error_avg /= net.input_layer.TrainSet.Length; //Среднее значение энергии ошибки одной эпохи
-                //Здесь написать код отображения среднего значения эпохи на графике
+                UpdateErrorChartAsync(form, e_error_avg);
+                //Console.WriteLine($"Эпоха {k}, ошибка: {e_error_avg}");
             }
 
             net.input_layer = null; //Обнуление входного слоя
 
             //Сохранение скорректированных весов
-            net.hidden_layer1.WeightsInitialize(MemoryMode.SET, nameof(hidden_layer1) + "_memory.csv");
-            net.hidden_layer2.WeightsInitialize(MemoryMode.SET, nameof(hidden_layer2) + "_memory.csv");
-            net.output_layer.WeightsInitialize(MemoryMode.SET, nameof(output_layer) + "_memory.csv");
+            net.hidden_layer1.WeightsInitialize(MemoryMode.SET);
+            net.hidden_layer2.WeightsInitialize(MemoryMode.SET);
+            net.output_layer.WeightsInitialize(MemoryMode.SET);
+
+        }
+
+
+        // Тестирование
+        public void Test(Network net)
+        {
+            net.input_layer = new InputLayer(NetworkMode.Test);
+            double m = 0;
+            for (int i = 0; i < net.input_layer.TestSet.Length; i++)
+            {
+                ForwardPass(net, net.input_layer.TestSet[i].Item1);
+                m += (Fact.ToList().IndexOf(Fact.Max()) == net.input_layer.TestSet[i].Item2) ? 1: 0;
+            }
+            MessageBox.Show(
+                $"Точность: {m/net.input_layer.TestSet.Length}",
+            "Предсказание",
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Information,
+            MessageBoxDefaultButton.Button1,
+            MessageBoxOptions.RightAlign);
 
         }
     }
