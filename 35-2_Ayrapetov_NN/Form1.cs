@@ -15,7 +15,7 @@ namespace _35_2_Ayrapetov_NN
     public partial class Form1 : Form
     {
         double[] inputData;
-        Network net = new Network(NetworkMode.Test);
+        Network net = new Network(NetworkMode.Recognize);
         public double[] InputData
         {
             get { return inputData; }
